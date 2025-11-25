@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Loan implements Comparable<Loan> {
-    private String id;
+    private final String id;
     private final double amount;
     private double remainingAmount;
 
@@ -22,6 +22,10 @@ public class Loan implements Comparable<Loan> {
 
         if(months > 60) {
             throw new IllegalArgumentException("Cannot request a loan for more than 60 months");
+        }
+
+        if(amount < 0) {
+            throw new OperationWithNegativeAmountException("Cannot request a loan for negative amount");
         }
 
         this.id =  UUID.randomUUID().toString();
@@ -40,11 +44,11 @@ public class Loan implements Comparable<Loan> {
         this.remainingAmount -= amount;
     }
 
-    public Boolean isPaid() {
+    public boolean isPaid() {
         return remainingAmount < 0.0001;
     }
 
-    public Boolean isDue() {
+    public boolean isDue() {
         return dueDate.isBefore(LocalDateTime.now());
     }
 
@@ -67,6 +71,16 @@ public class Loan implements Comparable<Loan> {
         }
 
         return this.id.compareTo(other.id);
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        return String.format(
+                "[Заем] ID: %s | Взет: %s | Краен срок: %s | Оставаща сума: %.2f (от %.2f)",
+                id, dtf.format(startDate), dtf.format(dueDate), remainingAmount, amount
+        );
     }
 
     public String getId() { return id; }
