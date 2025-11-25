@@ -36,7 +36,7 @@ public class Loan implements Comparable<Loan> {
         this.isPaid = false;
 
         this.startDate = LocalDateTime.now();
-        this.dueDate = LocalDateTime.now().plusMonths(months);
+        this.dueDate = this.startDate.plusMonths(months);
     }
 
     public void pay(double amount) {
@@ -94,12 +94,8 @@ public class Loan implements Comparable<Loan> {
     }
 
     public String getId() { return id; }
-
     public double getAmount() { return amount; }
-
     public LocalDateTime getStartDate() { return startDate; }
-
     public LocalDateTime getDueDate() { return dueDate; }
-
     public double getRemainingAmount() { return remainingAmount; }
 }

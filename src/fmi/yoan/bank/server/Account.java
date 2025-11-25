@@ -9,8 +9,8 @@ public class Account {
     private final String id;
     private String name;
     private final String egn;
-    private final String IBAN;
-    private final String PIN;
+    private final String iban;
+    private final String pin;
 
     private double balance;
     private TreeSet<Loan> loans;
@@ -25,32 +25,32 @@ public class Account {
         return null;
     }
 
-    public Account(String name, String egn, String IBAN, String PIN, double balance) {
+    public Account(String name, String egn, String iban, String pin, double balance) {
         if (name == null) {
             throw new NullPointerException("Account name cannot be null");
         }
 
         if (egn == null || egn.length() != 10) {
-            throw new IllegalEGNException("Invalid EGN. Must be 10 digit number");
+            throw new IllegalArgumentException("Invalid EGN. Must be 10 digit number");
         }
 
         if(balance < 0) {
             throw new InsufficientFundsException("Balance cannot be negative");
         }
 
-        if(IBAN == null || IBAN.length() != 22) {
-            throw new IllegalIBANException("Invalid IBAN. Must be 22 digit number");
+        if(iban == null || iban.length() != 22) {
+            throw new IllegalArgumentException("Invalid IBAN. Must be 22 digit number");
         }
 
-        if(PIN == null || PIN.length() != 4) {
-            throw new IllegalPINException("Invalid PIN. Must be 4 digit number");
+        if(pin == null || pin.length() != 4) {
+            throw new IllegalArgumentException("Invalid PIN. Must be 4 digit number");
         }
 
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.egn = egn;
-        this.IBAN = IBAN;
-        this.PIN = PIN;
+        this.iban = iban;
+        this.pin = pin;
         this.balance = balance;
         this.loans = new TreeSet<>();
     }
@@ -123,9 +123,9 @@ public class Account {
 
     public String getEgn() { return egn; }
 
-    public String getIBAN() { return IBAN; }
+    public String getIBAN() { return iban; }
 
-    public String getPIN() { return PIN; }
+    public String getPIN() { return pin; }
 
     public synchronized double getBalance() { return balance; }
 
