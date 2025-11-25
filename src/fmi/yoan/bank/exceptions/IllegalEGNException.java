@@ -1,4 +1,4 @@
-package fmi.yoan.bank.excpetions;
+package fmi.yoan.bank.exceptions;
 
 public class IllegalEGNException extends RuntimeException {
     public IllegalEGNException(String message) {

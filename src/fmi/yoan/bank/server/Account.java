@@ -1,6 +1,6 @@
 package fmi.yoan.bank.server;
 
-import fmi.yoan.bank.excpetions.*;
+import fmi.yoan.bank.exceptions.*;
 
 import java.util.TreeSet;
 import java.util.UUID;
@@ -56,7 +56,7 @@ public class Account {
     }
 
     public synchronized void deposit(double amount) {
-        if(amount < 0) {
+        if(amount <= 0) {
             throw new OperationWithNegativeAmountException("Cannot deposit negative amount");
         }
 
@@ -64,7 +64,7 @@ public class Account {
     }
 
     public synchronized void withdraw(double amount) {
-        if (amount < 0) {
+        if (amount <= 0) {
             throw new OperationWithNegativeAmountException("Cannot withdraw negative amount");
         }
 
@@ -80,12 +80,8 @@ public class Account {
     }
 
     public synchronized double payLoanInstallment(String loanId, double amount) {
-        if(amount < 0) {
-            throw new OperationWithNegativeAmountException("Cannot pay negative amount");
-        }
-
-        if(amount > balance) {
-            throw new InsufficientFundsException("Cannot pay amount greater than balance");
+        if(amount <= 0) {
+            throw new OperationWithNegativeAmountException("Cannot pay negative or no amount");
         }
 
         Loan loan = findLoanById(loanId);
@@ -106,7 +102,7 @@ public class Account {
 
         if(loan.isPaid()) {
             this.loans.remove(loan);
-            System.out.printf("Loan %s has been paid", loan.getId());
+            //System.out.printf("Loan %s has been paid", loan.getId());
         }
 
         return paymentAmount;
@@ -133,5 +129,5 @@ public class Account {
 
     public synchronized double getBalance() { return balance; }
 
-    public TreeSet<Loan> getLoans() { return loans; }
+    public synchronized TreeSet<Loan> getLoans() { return new TreeSet<>(this.loans); }
 }

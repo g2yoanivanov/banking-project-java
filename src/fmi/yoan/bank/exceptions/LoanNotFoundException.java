@@ -1,4 +1,4 @@
-package fmi.yoan.bank.excpetions;
+package fmi.yoan.bank.exceptions;
 
 public class LoanNotFoundException extends RuntimeException {
     public LoanNotFoundException(String message) {

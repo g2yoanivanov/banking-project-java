@@ -1,4 +1,4 @@
-package fmi.yoan.bank.excpetions;
+package fmi.yoan.bank.exceptions;
 
 public class IllegalIBANException extends RuntimeException {
     public IllegalIBANException(String message) {

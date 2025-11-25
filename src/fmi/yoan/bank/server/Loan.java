@@ -1,8 +1,7 @@
 package fmi.yoan.bank.server;
 
-import fmi.yoan.bank.excpetions.OperationWithNegativeAmountException;
+import fmi.yoan.bank.exceptions.OperationWithNegativeAmountException;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.UUID;
