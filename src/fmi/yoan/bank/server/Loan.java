@@ -12,6 +12,8 @@ public class Loan implements Comparable<Loan> {
     private final double amount;
     private double remainingAmount;
 
+    private boolean isPaid;
+
     private final LocalDateTime startDate;
     private final LocalDateTime dueDate;
 
@@ -24,13 +26,15 @@ public class Loan implements Comparable<Loan> {
             throw new IllegalArgumentException("Cannot request a loan for more than 60 months");
         }
 
-        if(amount < 0) {
-            throw new OperationWithNegativeAmountException("Cannot request a loan for negative amount");
+        if(amount <= 0) {
+            throw new OperationWithNegativeAmountException("Cannot request a loan for negative or zero amount");
         }
 
         this.id =  UUID.randomUUID().toString();
         this.amount = amount;
         this.remainingAmount = amount;
+
+        this.isPaid = false;
 
         this.startDate = LocalDateTime.now();
         this.dueDate = LocalDateTime.now().plusMonths(months);
@@ -45,7 +49,11 @@ public class Loan implements Comparable<Loan> {
     }
 
     public boolean isPaid() {
-        return remainingAmount < 0.0001;
+        if(remainingAmount < 0.0001) {
+            this.isPaid = true;
+        }
+
+        return isPaid;
     }
 
     public boolean isDue() {
@@ -78,7 +86,10 @@ public class Loan implements Comparable<Loan> {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
         return String.format(
-                "[Заем] ID: %s | Взет: %s | Краен срок: %s | Оставаща сума: %.2f (от %.2f)",
+                "[Loan] ID: %s%n" +
+                "Given on: %s%n" +
+                "Due date: %s%n" +
+                "Remaining amount: %.2f (Starting amount: %.2f)%n",
                 id, dtf.format(startDate), dtf.format(dueDate), remainingAmount, amount
         );
     }
