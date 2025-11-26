@@ -111,9 +111,14 @@ public class Account {
     @Override
     public String toString() {
         return String.format(
-                "[Account] ID: %s%n" +
-                "Name: %s%n",
-                id, name
+                "[Account]%n"
+                + "ID: %s%n"
+                + "Name: %s%n"
+                + "EGN: %s%n"
+                + "IBAN: %s%n"
+                + "PIN: %s%n"
+                + "Balance: %f%n",
+                id, name, egn, iban, pin, balance
         );
     }
 
