@@ -414,4 +414,33 @@ public class Bank {
             return String.format("Error: %s%n", e.getMessage());
         }
     }
+
+    public synchronized void runDailyPenaltyCheck() {
+        if(accountsByIban.isEmpty()) {
+            return;
+        }
+
+        int accountsPenalized = 0;
+
+        System.out.println("[System] Starting daily penalty check...");
+        for(Account acc : accountsByIban.values()) {
+            TreeSet<Loan> loans = acc.getLoans();
+
+            for(Loan loan : loans) {
+                if(loan.isDue()) {
+                    double penalty = loan.applyPenaltyInterest();
+
+                    if(penalty > 0) {
+                        accountsPenalized++;
+                        System.out.printf("[System] Penalized loan %s (Account: %s) with %.2f BGN%n",
+                                loan.getId(), acc.getIBAN(), penalty);
+                    }
+                }
+            }
+
+            if(accountsPenalized > 0) {
+                System.out.printf("[System] Penalty check finished! %d loans were penalized%n", accountsPenalized);
+            }
+        }
+    }
 }
