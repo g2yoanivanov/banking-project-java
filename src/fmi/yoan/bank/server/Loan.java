@@ -7,6 +7,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class Loan implements Comparable<Loan> {
+    private static final int MAX_LOAN_PERIOD = 60;
+
     private final String id;
     private final double amount;
     private double remainingAmount;
@@ -21,8 +23,8 @@ public class Loan implements Comparable<Loan> {
             throw new IllegalArgumentException("Cannot request a loan for negative months");
         }
 
-        if(months > 60) {
-            throw new IllegalArgumentException("Cannot request a loan for more than 60 months");
+        if(months > MAX_LOAN_PERIOD) {
+            throw new IllegalArgumentException(String.format("Cannot request a loan for %d months", MAX_LOAN_PERIOD));
         }
 
         if(amount <= 0) {

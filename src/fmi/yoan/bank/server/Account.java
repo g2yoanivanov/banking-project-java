@@ -10,7 +10,7 @@ public class Account {
     private String name;
     private final String egn;
     private final String iban;
-    private final String pin;
+    private String pin;
 
     private double balance;
     private TreeSet<Loan> loans;
@@ -102,7 +102,6 @@ public class Account {
 
         if(loan.isPaid()) {
             this.loans.remove(loan);
-            //System.out.printf("Loan %s has been paid", loan.getId());
         }
 
         return paymentAmount;
@@ -135,4 +134,12 @@ public class Account {
     public synchronized double getBalance() { return balance; }
 
     public synchronized TreeSet<Loan> getLoans() { return new TreeSet<>(this.loans); }
+
+    public void setPin(String pin) {
+        if(pin == null || pin.length() != 4) {
+            throw new IllegalArgumentException("Invalid PIN. Must be 4 digit number");
+        }
+
+        this.pin = pin;
+    }
 }
