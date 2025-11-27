@@ -214,6 +214,10 @@ public class Bank {
                 throw new IllegalArgumentException("Cannot withdraw an amount less or equal to 0");
             }
 
+            if (this.reserves < amount) {
+                throw new InsufficientFundsException("Bank has insufficient reserves to process this withdrawal.");
+            }
+
             if(!accountsByIban.containsKey(iban)) {
                 throw new IllegalArgumentException("Cannot find an account with an existing IBAN");
             }
@@ -253,7 +257,7 @@ public class Bank {
             }
 
             if(receiverIban.equals(senderIban)) {
-                throw new IllegalArgumentException("Cannot transfer money to yourselfx");
+                throw new IllegalArgumentException("Cannot transfer money to yourself");
             }
 
             if(!accountsByIban.containsKey(senderIban) ||  !accountsByIban.containsKey(receiverIban)) {
@@ -270,7 +274,7 @@ public class Bank {
             senderAcc.withdraw(amount);
             receiverAcc.deposit(amount);
 
-            return String.format("Successfully transferred %.2f to %s!%n", amount, senderAcc.getIBAN());
+            return String.format("Successfully transferred %.2f to %s!%n", amount, receiverAcc.getIBAN());
         } catch (Exception e) {
             return String.format("Error: %s%n", e.getMessage());
         }
@@ -371,9 +375,43 @@ public class Bank {
         }
     }
 
-    public synchronized String getLoans() {
-        return "";
+    public synchronized String getLoans(String iban, String pin) {
+        try {
+            if(iban == null) {
+                throw new NullPointerException("IBAN cannot be null");
+            }
+
+            if(pin == null) {
+                throw new NullPointerException("PIN cannot be null");
+            }
+
+            if(!accountsByIban.containsKey(iban)) {
+                throw new IllegalArgumentException("Cannot find an account with an existing IBAN");
+            }
+
+            Account acc = accountsByIban.get(iban);
+
+            if(!checkPin(acc.getPIN(), pin)) {
+                throw new IllegalArgumentException("Invalid PIN");
+            }
+
+            TreeSet<Loan> loans = acc.getLoans();
+
+            if(loans.isEmpty()) {
+                return String.format("No active loans in account with IBAN: %s%n", iban);
+            }
+
+            StringBuilder loansString = new StringBuilder();
+            loansString.append(String.format("Active Loans for %s: %n", acc.getName()));
+
+            for(Loan loan : loans) {
+                loansString.append(loan.toString()).append(System.lineSeparator());
+                loansString.append("---------------------").append(System.lineSeparator());
+            }
+
+            return loansString.toString();
+        } catch(Exception e) {
+            return String.format("Error: %s%n", e.getMessage());
+        }
     }
-
-
 }
