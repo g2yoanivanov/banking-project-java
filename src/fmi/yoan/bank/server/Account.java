@@ -129,7 +129,7 @@ public class Account {
 
     public String getIBAN() { return iban; }
 
-    public String getPIN() { return pin; }
+    public synchronized String getPIN() { return pin; }
 
     public synchronized double getBalance() { return balance; }
 

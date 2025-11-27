@@ -63,10 +63,6 @@ public class Bank {
 
     }
 
-    public synchronized String getBankReserves() {
-        return String.format("%.2f", this.reserves);
-    }
-
     public synchronized String registerAccount(String name, String egn) {
         if(name == null) {
             throw new NullPointerException("Name cannot be null");
@@ -442,5 +438,17 @@ public class Bank {
                 System.out.printf("[System] Penalty check finished! %d loans were penalized%n", accountsPenalized);
             }
         }
+    }
+
+    public synchronized String getName() {
+        return this.name;
+    }
+
+    public synchronized String getCode() {
+        return this.code;
+    }
+
+    public synchronized String getBankReserves() {
+        return String.format("%.2f", this.reserves);
     }
 }
