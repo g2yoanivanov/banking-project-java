@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fc11bab-52f1-426c-b7e5-3082c8a821e4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankingProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankingProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fmi/yoan/bank/server/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -31,18 +36,27 @@
   "keyToString": {
     "Application.Client.executor": "Run",
     "Application.Server.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.fmi.yoan.bank.test in BankingProject.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/UNI/Sem5/MrPr/BankingProject",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JUnit.fmi.yoan.bank.test in BankingProject">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="fmi.yoan.bank.client.Client" />
       <module name="BankingProject" />
@@ -57,10 +71,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fmi.yoan.bank.test in BankingProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankingProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fmi.yoan.bank.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fmi.yoan.bank.test" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
+      <item itemvalue="JUnit.fmi.yoan.bank.test in BankingProject" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.fmi.yoan.bank.test in BankingProject" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

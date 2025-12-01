@@ -41,7 +41,7 @@ public class Bank {
         return enteredPin.equals(accPin);
     }
 
-    Bank(String name, String code, double reserves) {
+    public Bank(String name, String code, double reserves) {
         if(name == null) {
             throw new NullPointerException("Name cannot be null");
         }
