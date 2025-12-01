@@ -11,10 +11,10 @@ public class Server {
     private static final int PORT = 6262;
 
    public static void main(String[] args) {
-       Bank bank = new Bank("YoanBank", "YB", 10000000.00);
+       Bank bank = new Bank("YoanBank", "G2YB", 10000000.00);
 
        System.out.println("[System] Bank created successfully!");
-       System.out.println("Bank reserves: " + bank.getBankReserves());
+       System.out.println("Bank reserves: " + bank.getBankReserves() + "BGN");
 
         startInterestTimer(bank);
 
@@ -50,6 +50,6 @@ public class Server {
 
         scheduler.scheduleAtFixedRate(interestTask,10, 60, TimeUnit.SECONDS);
 
-        System.out.println("[System] Penalty check started! (1 min = 1 day");
+        System.out.println("[System] Penalty check started! (1 min = 1 day)");
    }
 }

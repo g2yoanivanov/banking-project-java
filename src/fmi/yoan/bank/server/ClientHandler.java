@@ -26,8 +26,8 @@ public class ClientHandler implements Runnable {
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out = new PrintWriter(clientSocket.getOutputStream(), true);
 
-            System.out.println("[System] Welcome to " + bank.getName());
-            System.out.println("[System] Type HELP for list with commands");
+            out.println("[System] Welcome to " + bank.getName());
+            out.println("[System] Type HELP for list with commands");
 
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
@@ -82,14 +82,14 @@ public class ClientHandler implements Runnable {
 
                     this.currentIban = iban;
                     this.currentPin = pin;
-                    return "[System] Account logged in successfully%n" + info;
+                    return "[System] Account logged in successfully\n" + info;
                 case "INFO":
                     if(parts.length != 1) {
                         return "[System] Usage: INFO";
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     return bank.getAccountInfoByIban(this.currentIban, this.currentPin);
@@ -99,7 +99,7 @@ public class ClientHandler implements Runnable {
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     double depositAmount = Double.parseDouble(parts[1]);
@@ -110,7 +110,7 @@ public class ClientHandler implements Runnable {
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     double withdrawAmount = Double.parseDouble(parts[1]);
@@ -121,7 +121,7 @@ public class ClientHandler implements Runnable {
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     double transferAmount = Double.parseDouble(parts[2]);
@@ -129,15 +129,15 @@ public class ClientHandler implements Runnable {
                     return bank.transfer(this.currentIban, parts[1], this.currentPin, transferAmount);
                 case "CHANGEPIN":
                     if(parts.length != 3) {
-                        return "[System] Usage: CHANGEPIN <OLD PIN> <NEW PIN>]";
+                        return "[System] Usage: CHANGEPIN <OLD PIN> <NEW PIN>";
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     if(!this.currentPin.equals(parts[1])) {
-                        return "[System] Incorrect PIN entered%n";
+                        return "[System] Incorrect PIN entered\n";
                     }
 
                     String newPin = parts[2];
@@ -155,7 +155,7 @@ public class ClientHandler implements Runnable {
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     double loanAmount = Double.parseDouble(parts[1]);
@@ -168,7 +168,7 @@ public class ClientHandler implements Runnable {
                     }
 
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     String loanId = parts[1];
@@ -177,7 +177,7 @@ public class ClientHandler implements Runnable {
                     bank.payLoanInstallment(this.currentIban, this.currentPin, loanId, loanPayment);
                 case "LOANINFO":
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
 
                     return bank.getLoans(this.currentIban, this.currentPin);
@@ -185,11 +185,11 @@ public class ClientHandler implements Runnable {
                     return getHelpMessage();
                 case "LOGOUT":
                     if(!isLoggedIn()) {
-                        return "[System] You are not logged in%n]";
+                        return "[System] You are not logged in\n";
                     }
                     this.currentIban = null;
                     this.currentPin = null;
-                    return "[System] Account logged out successfully%n";
+                    return "[System] Account logged out successfully\n";
                 default:
                     return "[System] Unknown command. Type HELP for list with commands.";
             }
@@ -203,18 +203,18 @@ public class ClientHandler implements Runnable {
     }
 
     private String getHelpMessage() {
-        return "[System] BANK COMMANDS:" +
-                "01. REGISTER <NAME> <EGN>%n" +
-                "02. LOGIN <IBAN> <PIN>%n" +
-                "03. DEPOSIT <AMOUNT>%n" +
-                "04. WITHDRAW <AMOUNT>%n" +
-                "05. TRANSFER <RECEIVER IBAN> <AMOUNT>%n" +
-                "06. CHANGEPIN <OLD PIN> <NEW PIN>%n" +
-                "07. INFO" +
-                "08. REQLOAN <AMOUNT> <MONTHS>%n" +
+        return "[System] BANK COMMANDS:\n" +
+                "01. REGISTER <NAME> <EGN>\n" +
+                "02. LOGIN <IBAN> <PIN>\n" +
+                "03. DEPOSIT <AMOUNT>\n" +
+                "04. WITHDRAW <AMOUNT>\n" +
+                "05. TRANSFER <RECEIVER IBAN> <AMOUNT>\n" +
+                "06. CHANGEPIN <OLD PIN> <NEW PIN>\n" +
+                "07. INFO\n" +
+                "08. REQLOAN <AMOUNT> <MONTHS>\n" +
                 "09. PAYLOAN <LOAN ID> <AMOUNT>" +
-                "10. LOANINFO" +
-                "11. HELP" +
-                "12. LOGOUT";
+                "10. LOANINFO\n" +
+                "11. HELP\n" +
+                "12. LOGOUT\n";
     }
 }

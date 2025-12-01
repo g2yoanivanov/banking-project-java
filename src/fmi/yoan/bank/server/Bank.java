@@ -190,7 +190,7 @@ public class Bank {
             this.reserves += amount;
 
             return String.format("Successfully deposited amount!%n"
-                                + "New balance: %fBGN%n", acc.getBalance());
+                                + "New balance: %.2fBGN%n", acc.getBalance());
         } catch (Exception e) {
             return String.format("Error: %s%n", e.getMessage());
         }
@@ -228,7 +228,7 @@ public class Bank {
             this.reserves -= amount;
 
             return String.format("Successfully withdrawn amount!%n"
-                    + "New balance: %fBGN%n", acc.getBalance());
+                    + "New balance: %.2fBGN%n", acc.getBalance());
         } catch (Exception e) {
             return String.format("Error: %s%n", e.getMessage());
         }
