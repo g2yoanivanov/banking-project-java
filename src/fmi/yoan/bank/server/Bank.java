@@ -440,6 +440,13 @@ public class Bank {
         }
     }
 
+    public synchronized double getBalance(String iban) {
+        if (!accountsByIban.containsKey(iban)) {
+            throw new IllegalArgumentException("Account not found");
+        }
+        return accountsByIban.get(iban).getBalance();
+    }
+
     public synchronized String getName() {
         return this.name;
     }
