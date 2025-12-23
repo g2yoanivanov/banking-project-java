@@ -36,7 +36,7 @@ jobs:
           tags: g2yoan/banking-app:test
 
       - name: Run Trivy Vulnerability Scanner
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.29.0
         with:
           image-ref: 'g2yoan/banking-app:test'
           format: 'table'
