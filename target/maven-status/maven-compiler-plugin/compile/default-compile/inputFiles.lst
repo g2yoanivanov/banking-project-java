@@ -1,0 +1,9 @@
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\client\Client.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\exceptions\InsufficientFundsException.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\exceptions\LoanNotFoundException.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\exceptions\OperationWithNegativeAmountException.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\server\Account.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\server\Bank.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\server\ClientHandler.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\server\Loan.java
+D:\UNI\Sem5\MrPr\BankingProject\src\main\java\fmi\yoan\bank\server\Server.java

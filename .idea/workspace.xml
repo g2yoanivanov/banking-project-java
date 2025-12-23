@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fc11bab-52f1-426c-b7e5-3082c8a821e4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/test/ConcurrencyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fmi/yoan/bank/test/ConcurrencyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BankingProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BankingProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/exceptions/InsufficientFundsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/exceptions/LoanNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/exceptions/OperationWithNegativeAmountException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Bank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/ClientHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Loan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/server/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/test/AccountTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/test/BankTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fmi/yoan/bank/test/ConcurrencyTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,55 +47,72 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Server.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.fmi.yoan.bank.test in BankingProject.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/UNI/Sem5/MrPr/BankingProject&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Client.executor": "Run",
+    "Application.Server.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.ConcurrencyTest.executor": "Run",
+    "JUnit.fmi.yoan.bank.test in BankingProject.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "feature/docker-setup",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/UNI/Sem5/MrPr/BankingProject",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.fmi.yoan.bank.test in BankingProject">
+}]]></component>
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="fmi.yoan.bank.client.Client" />
+      <option name="MAIN_CLASS_NAME" value="fmi.Client" />
       <module name="BankingProject" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="Server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="fmi.yoan.bank.server.Server" />
+      <option name="MAIN_CLASS_NAME" value="fmi.Server" />
       <module name="BankingProject" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="fmi.yoan.bank.test in BankingProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="fmi in BankingProject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="BankingProject" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fmi.yoan.bank.test.*" />
+          <option name="PATTERN" value="fmi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fmi" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="null" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="BankingProject" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fmi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="fmi.yoan.bank.test" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="test.null" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,11 +120,13 @@
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
-      <item itemvalue="JUnit.fmi.yoan.bank.test in BankingProject" />
+      <item itemvalue="JUnit.fmi in BankingProject" />
+      <item itemvalue="JUnit.null" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.fmi.yoan.bank.test in BankingProject" />
+        <item itemvalue="JUnit.null" />
+        <item itemvalue="JUnit.fmi in BankingProject" />
       </list>
     </recent_temporary>
   </component>

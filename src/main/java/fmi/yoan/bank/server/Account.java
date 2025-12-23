@@ -116,7 +116,7 @@ public class Account {
                 + "EGN: %s%n"
                 + "IBAN: %s%n"
                 + "PIN: %s%n"
-                + "Balance: %f%n",
+                + "Balance: %.2f%n",
                 id, name, egn, iban, pin, balance
         );
     }

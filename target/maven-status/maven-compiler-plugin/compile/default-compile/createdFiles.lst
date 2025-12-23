@@ -1,0 +1,9 @@
+fmi\yoan\bank\exceptions\LoanNotFoundException.class
+fmi\yoan\bank\server\Bank.class
+fmi\yoan\bank\server\Loan.class
+fmi\yoan\bank\server\Server.class
+fmi\yoan\bank\exceptions\InsufficientFundsException.class
+fmi\yoan\bank\exceptions\OperationWithNegativeAmountException.class
+fmi\yoan\bank\client\Client.class
+fmi\yoan\bank\server\Account.class
+fmi\yoan\bank\server\ClientHandler.class

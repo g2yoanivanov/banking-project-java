@@ -1,4 +1,4 @@
-package fmi.yoan.bank.test;
+package test;
 
 import fmi.yoan.bank.exceptions.InsufficientFundsException;
 import fmi.yoan.bank.exceptions.OperationWithNegativeAmountException;

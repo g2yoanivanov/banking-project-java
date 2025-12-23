@@ -174,7 +174,7 @@ public class ClientHandler implements Runnable {
                     String loanId = parts[1];
                     double loanPayment = Double.parseDouble(parts[2]);
 
-                    bank.payLoanInstallment(this.currentIban, this.currentPin, loanId, loanPayment);
+                    return bank.payLoanInstallment(this.currentIban, this.currentPin, loanId, loanPayment);
                 case "LOANINFO":
                     if(!isLoggedIn()) {
                         return "[System] You are not logged in\n";
@@ -212,7 +212,7 @@ public class ClientHandler implements Runnable {
                 "06. CHANGEPIN <OLD PIN> <NEW PIN>\n" +
                 "07. INFO\n" +
                 "08. REQLOAN <AMOUNT> <MONTHS>\n" +
-                "09. PAYLOAN <LOAN ID> <AMOUNT>" +
+                "09. PAYLOAN <LOAN ID> <AMOUNT>\n" +
                 "10. LOANINFO\n" +
                 "11. HELP\n" +
                 "12. LOGOUT\n";
