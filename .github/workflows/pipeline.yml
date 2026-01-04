@@ -1,11 +1,11 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline to GCP
 
 on:
   push:
     branches: [ "feature/docker-setup", "main" ]
 
 jobs:
-  build-test-scan-push:
+  build-scan-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,9 +19,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn clean package
-
       - name: Build and Analyze Code
         run: mvn clean package pmd:check
 
@@ -31,24 +28,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build Docker Image for Scanning
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          load: true
-          tags: g2yoan/banking-app:test
-
-      - name: Run Trivy Vulnerability Scanner
-        uses: aquasecurity/trivy-action@0.29.0
-        with:
-          image-ref: 'g2yoan/banking-app:test'
-          format: 'table'
-          exit-code: '1'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
-
-      - name: Build and Push Final Image
+      - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -56,3 +36,23 @@ jobs:
           tags: |
             g2yoan/banking-app:v1
             g2yoan/banking-app:latest
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up GKE credentials
+        uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: banking-cluster  # <-- Името, което даде на клъстера в Етап 1
+          location: europe-west1-b       # <-- Зоната, която избра
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Deploy to GKE
+        run: |
+          kubectl apply -f k8s/
+          
+          kubectl rollout restart deployment/banking-app-deployment
+          
+          kubectl get services
