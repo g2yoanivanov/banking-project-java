@@ -45,7 +45,7 @@ jobs:
       - name: Set up GKE credentials
         uses: google-github-actions/get-gke-credentials@v1
         with:
-          cluster_name: banking-cluster
+          cluster_name: autopilot-cluster-1
           location: europe-west1
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
