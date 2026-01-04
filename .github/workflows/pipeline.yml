@@ -55,4 +55,6 @@ jobs:
           
           kubectl rollout restart deployment/banking-app-deployment
           
+          kubectl get pods
+          
           kubectl get services
